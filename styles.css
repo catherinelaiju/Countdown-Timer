@@ -1,0 +1,93 @@
+
+:root{
+  --bg-1: #f7f9fc;
+  --bg-2: #eef2ff;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --accent: #4753ff;
+  --accent-2: #7b89ff;
+  --success: #16a34a;
+  --warn: #f97316;
+  --danger: #ef4444;
+  --glass: rgba(15,23,42,0.04);
+  --radius: 14px;
+  --max-width: 1100px;
+  color-scheme: light;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+[data-theme="dark"]{
+  --bg-1: #0b1020;
+  --bg-2: #07102a;
+  --surface: #071129;
+  --muted: #9aa3b2;
+  --accent: #6aa0ff;
+  --accent-2: #a8c2ff;
+  --glass: rgba(255,255,255,0.04);
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0}
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  display:flex; align-items:flex-start; justify-content:center; padding:48px 20px;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{width:100%; max-width:var(--max-width)}
+
+header.header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px}
+.brand{display:flex; gap:14px; align-items:center}
+.logo{width:54px; height:54px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:white; font-weight:700; font-size:20px; box-shadow:0 8px 28px rgba(71,83,255,0.18)}
+.brand h1{font-size:20px;margin:0}
+.brand p{margin:0; color:var(--muted); font-size:13px}
+
+.controls{display:flex; gap:8px; align-items:center}
+.btn{display:inline-flex; gap:8px; align-items:center; justify-content:center; border:0; cursor:pointer; padding:10px 14px; border-radius:10px; font-weight:600}
+.btn.ghost{background:transparent; color:var(--muted); box-shadow:0 4px 16px var(--glass)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; box-shadow:0 12px 30px rgba(71,83,255,0.16)}
+.btn.icon{padding:8px}
+
+.grid{display:grid; grid-template-columns:420px 1fr; gap:22px}
+
+.card{background:var(--surface); border-radius:var(--radius); padding:20px; box-shadow:0 12px 40px var(--glass); border:1px solid var(--glass)}
+
+.form-card form{display:flex; flex-direction:column; gap:12px}
+label{font-size:13px; color:var(--muted)}
+input, select{width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.06); background:transparent; font-size:15px}
+input:focus{outline:none; border-color:var(--accent); box-shadow:0 6px 18px rgba(71,83,255,0.12)}
+
+.row{display:flex; gap:10px}
+.row .col{flex:1}
+
+.hint{font-size:13px; color:var(--muted)}
+
+.panel-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
+.timers-list{display:grid; gap:12px}
+
+.timer{display:flex; align-items:center; gap:16px; justify-content:space-between; padding:16px; border-radius:12px; background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent); border:1px solid rgba(0,0,0,0.04)}
+[data-theme="dark"] .timer{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.timer .meta{flex:1; min-width:200px}
+.timer .title{font-weight:700; font-size:15px}
+.timer .target{font-size:13px; color:var(--muted); margin-top:4px}
+.count{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace; font-weight:800; text-align:center; min-width:160px}
+.count.big{font-size:28px; color:var(--accent)}
+.count.warn{color:var(--warn)}
+.count.danger{color:var(--danger)}
+
+.timer .actions{display:flex; gap:8px}
+.pill{padding:8px 10px; border-radius:999px; background:rgba(0,0,0,0.03); font-size:13px; color:var(--muted)}
+
+.finished-badge{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; font-weight:700}
+.empty{padding:40px; text-align:center; color:var(--muted); border-radius:10px}
+footer{margin-top:18px; text-align:center; color:var(--muted); font-size:13px}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr}
+  .count{min-width:120px}
+}
+
+.pulse{animation:pulse 0.9s ease-in-out 2}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}

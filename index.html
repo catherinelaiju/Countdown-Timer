@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>⏳ Pro Countdown — Sleek & Functional</title>
+  <meta name="description" content="Professional, accessible countdown timer app — multiple timers, pause/resume, notifications, localStorage, theme." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+ 
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="wrap" id="app" role="application" aria-label="Professional countdown timer app">
+
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden>CT</div>
+        <div>
+          <h1>Pro Countdown</h1>
+          <p class="hint">Sleek timers • local storage • notifications</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="themeBtn" class="btn ghost" title="Toggle theme" aria-pressed="false">🌙 Theme</button>
+        <button id="importBtn" class="btn ghost" title="Import timers">⬆ Import</button>
+        <button id="exportBtn" class="btn ghost" title="Export timers">⬇ Export</button>
+      </div>
+    </header>
+
+    <main class="grid">
+     
+      <section class="card form-card" aria-labelledby="createTimer">
+        <h2 id="createTimer">Create timer</h2>
+        <form id="timerForm" autocomplete="off">
+          <label for="title">Event title</label>
+          <input id="title" type="text" placeholder="Project submission" required />
+
+          <div class="row">
+            <div class="col">
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+            <div class="col">
+              <label for="time">Time</label>
+              <input id="time" type="time" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="sound">Alarm</label>
+              <select id="sound" aria-label="choose alarm sound">
+                <option value="beep">Beep</option>
+                <option value="chime">Chime</option>
+              </select>
+            </div>
+            <div class="col">
+              <label class="sr-only">action</label>
+              <button type="submit" class="btn primary">Add timer</button>
+            </div>
+          </div>
+
+          <div id="formMsg" class="hint" aria-live="polite"></div>
+        </form>
+
+        <div style="margin-top:18px">
+          <div class="hint">Tips: create named timers, allow notifications when prompted by the browser.</div>
+        </div>
+      </section>
+
+     
+      <section class="card">
+        <div class="panel-head">
+          <div>
+            <h3 style="margin:0">Your timers</h3>
+            <div class="hint">Manage, pause/resume, reset or delete</div>
+          </div>
+          <div class="pill">Local storage</div>
+        </div>
+
+        <div id="timersList" class="timers-list">
+          <div id="empty" class="empty">No timers yet — add one from the left.</div>
+        </div>
+
+        <footer style="margin-top:14px; display:flex; justify-content:space-between; align-items:center">
+          <div class="hint">Auto-save • Works offline</div>
+          <div>
+            <button id="clearAll" class="btn ghost">Clear all</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <footer>Made with care • Pro Countdown</footer>
+
+    
+    <audio id="alarmBeep" preload="auto">
+      <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+    <audio id="alarmChime" preload="auto">
+      <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+
+  </div>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>
